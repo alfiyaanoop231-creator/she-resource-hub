@@ -5,9 +5,7 @@ body {
     transition: 0.3s;
 }
 
-h1 {
-    color: #d81b60;
-}
+h1 { color: #d81b60; }
 
 .login-box {
     background: white;
@@ -18,11 +16,7 @@ h1 {
 }
 
 .login-box select,
-.login-box input {
-    padding: 10px;
-    margin: 8px;
-    width: 80%;
-}
+.login-box input { padding: 10px; margin: 8px; width: 80%; }
 
 button {
     padding: 10px 20px;
@@ -34,15 +28,8 @@ button {
     color: white;
 }
 
-.mode-btn {
-    background: #6a1b9a;
-}
-
-input {
-    padding: 10px;
-    margin: 10px;
-    width: 60%;
-}
+.mode-btn { background: #6a1b9a; }
+input { padding: 10px; margin: 10px; width: 60%; }
 
 .card {
     background: white;
@@ -50,11 +37,10 @@ input {
     padding: 15px;
     width: 70%;
     border-radius: 10px;
+    transition: transform 0.3s, border 0.3s;
 }
 
-.card:hover {
-    transform: scale(1.05);
-}
+.card:hover { transform: scale(1.05); }
 
 .call-btn {
     display: inline-block;
@@ -66,23 +52,14 @@ input {
     border-radius: 5px;
 }
 
-.contact input, .contact textarea, .complaint-box textarea {
-    width: 60%;
-    padding: 10px;
-    margin: 5px;
-}
+.contact input, .contact textarea, .complaint-box textarea { width: 60%; padding: 10px; margin: 5px; }
 
 .dark {
     background-color: #1e1e1e;
     color: white;
 }
 
-.dark .card,
-.dark .login-box,
-.dark .safety-contacts {
-    background: #333;
-    color: white;
-}
+.dark .card, .dark .login-box, .dark .safety-contacts { background: #333; color: white; }
 
 .safety-contacts {
     background: #ffe4e1;
@@ -93,18 +70,8 @@ input {
     text-align: left;
 }
 
-.safety-contacts h2 {
-    text-align: center;
-    color: #d81b60;
-}
+.safety-contacts h2 { text-align: center; color: #d81b60; }
+.safety-contacts ul { list-style: none; padding: 0; }
+.safety-contacts li { padding: 5px 0; font-size: 16px; }
 
-.safety-contacts ul {
-    list-style: none;
-    padding: 0;
-}
-
-.safety-contacts li {
-    padding: 5px 0;
-    font-size: 16px;
-}
 
