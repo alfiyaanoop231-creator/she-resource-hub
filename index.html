@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Her Safe Space</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Her Safe Space</h1>
+    <button onclick="toggleMode()">🌙</button>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">Emergency</a>
+    <a href="#">Health</a>
+    <a href="#">Contact</a>
+</nav>
+
+<section>
+    <h2>Emergency Contacts</h2>
+    <p>Women Helpline: 181</p>
+    <p>Police: 100</p>
+    <p>Ambulance: 108</p>
+</section>
+
+<section>
+    <h2>Anonymous Help Form</h2>
+    <form onsubmit="showMessage(); return false;">
+        <input type="text" placeholder="Your Name (Optional)">
+        <br><br>
+        <textarea placeholder="Write your issue here"></textarea>
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+</section>
+
+<footer>
+    <p>Made for Women's Hackathon 💜</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
