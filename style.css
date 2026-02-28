@@ -7,16 +7,12 @@ body {
 
 h1 { color: #d81b60; }
 
-.login-box {
+.login-box, .card, .complaint-box, .contact, .emergency {
     background: white;
     padding: 20px;
-    width: 60%;
     margin: 20px auto;
     border-radius: 10px;
 }
-
-.login-box select,
-.login-box input { padding: 10px; margin: 8px; width: 80%; }
 
 button {
     padding: 10px 20px;
@@ -29,16 +25,8 @@ button {
 }
 
 .mode-btn { background: #6a1b9a; }
-input { padding: 10px; margin: 10px; width: 60%; }
 
-.card {
-    background: white;
-    margin: 15px auto;
-    padding: 15px;
-    width: 70%;
-    border-radius: 10px;
-    transition: transform 0.3s, border 0.3s;
-}
+input, select, textarea { padding: 10px; margin: 10px; width: 60%; }
 
 .card:hover { transform: scale(1.05); }
 
@@ -52,8 +40,6 @@ input { padding: 10px; margin: 10px; width: 60%; }
     border-radius: 5px;
 }
 
-.contact input, .contact textarea, .complaint-box textarea { width: 60%; padding: 10px; margin: 5px; }
-
 .dark {
     background-color: #1e1e1e;
     color: white;
@@ -61,17 +47,7 @@ input { padding: 10px; margin: 10px; width: 60%; }
 
 .dark .card, .dark .login-box, .dark .safety-contacts { background: #333; color: white; }
 
-.safety-contacts {
-    background: #ffe4e1;
-    padding: 15px;
-    width: 70%;
-    margin: 20px auto;
-    border-radius: 10px;
-    text-align: left;
+#welcomeScreen {
+    padding: 50px;
 }
-
-.safety-contacts h2 { text-align: center; color: #d81b60; }
-.safety-contacts ul { list-style: none; padding: 0; }
-.safety-contacts li { padding: 5px 0; font-size: 16px; }
-
 
