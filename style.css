@@ -1,17 +1,26 @@
+/* GLOBAL SETTINGS */
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
     text-align: center;
     background-color: #fce4ec;
     transition: 0.3s;
+    margin: 0;
+    padding: 0;
 }
 
 h1 { color: #d81b60; }
 
-.login-box, .card, .complaint-box, .contact, .emergency {
+/* LOGIN, CARD, COMPLAINT, CONTACT, EMERGENCY */
+.login-box, .card, .complaint-box, .contact, .emergency, .safety-contacts {
     background: white;
     padding: 20px;
     margin: 20px auto;
     border-radius: 10px;
+    transition: background 0.3s, color 0.3s;
 }
 
 button {
@@ -22,14 +31,32 @@ button {
     cursor: pointer;
     background: #d81b60;
     color: white;
+    transition: background 0.3s;
 }
+
+button:hover { background: #ad1457; }
 
 .mode-btn { background: #6a1b9a; }
 
-input, select, textarea { padding: 10px; margin: 10px; width: 60%; }
+input, select, textarea {
+    padding: 10px;
+    margin: 10px;
+    width: 60%;
+    max-width: 400px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
 
-.card:hover { transform: scale(1.05); }
+/* CARD HOVER */
+.card {
+    transition: transform 0.3s;
+}
 
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* CALL BUTTONS */
 .call-btn {
     display: inline-block;
     margin: 10px;
@@ -40,8 +67,60 @@ input, select, textarea { padding: 10px; margin: 10px; width: 60%; }
     border-radius: 5px;
 }
 
-.dark { background-color: #1e1e1e; color: white; }
-.dark .card, .dark .login-box, .dark .emergency { background: #333; color: white; }
-
+/* WELCOME SCREEN */
 #welcomeScreen { padding: 50px; }
-  
+
+/* DARK MODE */
+.dark {
+    background-color: #1e1e1e;
+    color: white;
+}
+
+.dark .card,
+.dark .login-box,
+.dark .complaint-box,
+.dark .contact,
+.dark .emergency,
+.dark .safety-contacts {
+    background: #333;
+    color: white;
+}
+
+/* SAFETY CONTACTS */
+.safety-contacts {
+    background: #ffe4e1;
+    padding: 15px;
+    width: 70%;
+    margin: 20px auto;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.safety-contacts h2 { text-align: center; color: #d81b60; }
+
+.safety-contacts ul {
+    list-style: none;
+    padding: 0;
+}
+
+.safety-contacts li {
+    padding: 5px 0;
+    font-size: 16px;
+}
+
+/* COMPLAINT CARD */
+.complaint-card {
+    background: #ffe4e1;
+    padding: 15px;
+    margin: 10px auto;
+    border-radius: 10px;
+    width: 70%;
+    text-align: left;
+    border-left: 5px solid #d81b60;
+    transition: background 0.3s, border-left 0.3s;
+}
+
+.complaint-card.resolved {
+    background: #e0ffe0;
+    border-left: 5px solid #4caf50;
+}
