@@ -1,4 +1,4 @@
-  // MULTIPLE ADMINS
+// MULTIPLE ADMINS
 let admins = [
     { username: "Admin1", password: "safe2026" },
     { username: "Admin2", password: "protect123" },
@@ -14,20 +14,20 @@ function showLogin() {
 // LOGIN
 function login() {
     let role = document.getElementById("role").value;
-    let username = document.getElementById("username").value;
-    let password = document.getElementById("password").value;
+    let username = document.getElementById("username").value.trim();
+    let password = document.getElementById("password").value.trim();
     let message = document.getElementById("loginMessage");
 
-    if(role === "" || username === "" || password === "") {
+    if(role === "" || username === "" || password === ""){
         message.innerHTML = "Please fill all fields!";
         message.style.color = "red";
         return;
     }
 
-    // Admin login check
+    // ADMIN LOGIN CHECK
     if(role === "Admin") {
-        let validAdmin = admins.find(admin => admin.username === username && admin.password === password);
-        if(!validAdmin) {
+        let validAdmin = admins.find(admin => admin.username.toLowerCase() === username.toLowerCase() && admin.password === password);
+        if(!validAdmin){
             message.innerHTML = "Invalid Admin username or password!";
             message.style.color = "red";
             return;
@@ -39,7 +39,7 @@ function login() {
     setGreeting(username);
 
     // Admin panel visibility
-    if(role === "Admin") {
+    if(role === "Admin"){
         document.getElementById("adminPanel").style.display = "block";
         loadComplaints();
         loadMessages();
