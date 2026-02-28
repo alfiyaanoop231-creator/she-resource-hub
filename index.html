@@ -16,21 +16,30 @@
         <option value="">Select Role</option>
         <option value="Student">Student</option>
         <option value="Worker">Worker</option>
+        <option value="Admin">Admin</option>
     </select>
 
     <input type="text" id="username" placeholder="Enter your name">
-    <button onclick="login()">Login</button>
+    <input type="password" id="password" placeholder="Enter Password">
 
+    <label>
+        <input type="checkbox" onclick="togglePassword()"> Show Password
+    </label>
+
+    <button onclick="login()">Login</button>
     <p id="loginMessage"></p>
 </div>
 
-<!-- MAIN WEBSITE (Hidden Before Login) -->
+<!-- MAIN CONTENT -->
 <div id="mainContent" style="display:none;">
+
+    <h2 id="greeting"></h2>
 
     <button onclick="toggleMode()" class="mode-btn">🌙 Toggle Mode</button>
 
     <input type="text" id="search" placeholder="Search topics..." onkeyup="searchContent()">
 
+    <!-- INFORMATION CARDS -->
     <div id="content">
 
         <div class="card">
@@ -50,17 +59,46 @@
 
     </div>
 
+    <!-- EMERGENCY CONTACTS -->
     <div class="emergency">
         <h2>Emergency Contacts</h2>
         <a href="tel:112" class="call-btn">📞 Call 112</a>
         <a href="tel:1091" class="call-btn">📞 Women Helpline 1091</a>
     </div>
 
+    <!-- CONTACT FORM -->
     <div class="contact">
         <h2>Contact Support</h2>
         <input type="text" id="name" placeholder="Your Name">
-        <textarea id="message" placeholder="Your Message"></textarea>
+        <textarea id="message" maxlength="200" onkeyup="countChar()" placeholder="Your Message"></textarea>
+        <p id="charCount">0 / 200</p>
         <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <!-- REPORT COMPLAINTS -->
+    <div class="complaint-box">
+        <h2>Report Complaint</h2>
+        <textarea id="complaintText" placeholder="Write your complaint..."></textarea>
+        <button onclick="submitComplaint()">Submit Complaint</button>
+        <p id="complaintMessage"></p>
+    </div>
+
+    <!-- WOMEN SAFETY NUMBERS -->
+    <div class="safety-contacts">
+        <h2>Women’s Safety Contacts</h2>
+        <ul>
+            <li>📞 Police: 112</li>
+            <li>📞 Women Helpline: 1091</li>
+            <li>📞 Childline: 1098</li>
+            <li>📞 Domestic Violence Helpline: 181</li>
+            <li>📞 Cyber Crime Helpline: 155260</li>
+        </ul>
+    </div>
+
+    <!-- ADMIN PANEL -->
+    <div id="adminPanel" style="display:none;">
+        <h2>Admin Panel - All Complaints</h2>
+        <div id="complaintList"></div>
     </div>
 
 </div>
@@ -68,6 +106,4 @@
 <script src="script.js"></script>
 </body>
 </html>
-
-
-    
+       
