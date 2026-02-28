@@ -44,3 +44,19 @@ input, select, textarea { padding: 10px; margin: 10px; width: 60%; }
 .dark .card, .dark .login-box, .dark .emergency { background: #333; color: white; }
 
 #welcomeScreen { padding: 50px; }
+
+/* COMPLAINT CARD STYLING */
+.complaint-card {
+    background: #ffe4e1;
+    padding: 15px;
+    margin: 10px auto;
+    border-radius: 10px;
+    width: 70%;
+    text-align: left;
+    border-left: 5px solid #d81b60;
+}
+
+.complaint-card.resolved {
+    background: #e0ffe0;
+    border-left: 5px solid #4caf50;
+}
