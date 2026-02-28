@@ -13,10 +13,10 @@ function login() {
         document.getElementById("mainContent").style.display = "block";
         setGreeting();
 
-        // Admin Panel
         if (role === "Admin") {
             document.getElementById("adminPanel").style.display = "block";
             loadComplaints();
+            loadMessages();
         } else {
             document.getElementById("adminPanel").style.display = "none";
         }
@@ -30,19 +30,12 @@ function togglePassword() {
 }
 
 // DARK MODE
-function toggleMode() {
-    document.body.classList.toggle("dark");
-}
+function toggleMode() { document.body.classList.toggle("dark"); }
 
 // GREETING
 function setGreeting() {
     let hour = new Date().getHours();
-    let greet;
-
-    if (hour < 12) greet = "Good Morning ☀️";
-    else if (hour < 18) greet = "Good Afternoon 🌤️";
-    else greet = "Good Evening 🌙";
-
+    let greet = hour < 12 ? "Good Morning ☀️" : hour < 18 ? "Good Afternoon 🌤️" : "Good Evening 🌙";
     document.getElementById("greeting").innerHTML = greet;
 }
 
@@ -50,15 +43,10 @@ function setGreeting() {
 function searchContent() {
     let input = document.getElementById("search").value.toLowerCase();
     let cards = document.getElementsByClassName("card");
-
     for (let i = 0; i < cards.length; i++) {
         let text = cards[i].innerText.toLowerCase();
-        if (text.includes(input)) {
-            cards[i].style.display = "block";
-            cards[i].style.border = "2px solid #d81b60";
-        } else {
-            cards[i].style.display = "none";
-        }
+        cards[i].style.display = text.includes(input) ? "block" : "none";
+        cards[i].style.border = text.includes(input) ? "2px solid #d81b60" : "none";
     }
 }
 
@@ -71,49 +59,74 @@ function countChar() {
 function sendMessage() {
     let name = document.getElementById("name").value;
     let message = document.getElementById("message").value;
+    if (!name || !message) { alert("Please fill all fields!"); return; }
 
-    if (name === "" || message === "") {
-        alert("Please fill all fields!");
-    } else {
-        alert("Message sent successfully 💜");
-        document.getElementById("name").value = "";
-        document.getElementById("message").value = "";
-        document.getElementById("charCount").innerHTML = "0 / 200";
-    }
+    let messages = JSON.parse(localStorage.getItem("messages")) || [];
+    messages.push({name, text: message});
+    localStorage.setItem("messages", JSON.stringify(messages));
+
+    alert("Message sent successfully 💜");
+    document.getElementById("name").value = "";
+    document.getElementById("message").value = "";
+    document.getElementById("charCount").innerHTML = "0 / 200";
+
+    loadMessages();
 }
 
-// REPORT COMPLAINTS
+// COMPLAINTS
 function submitComplaint() {
     let complaint = document.getElementById("complaintText").value;
     let msg = document.getElementById("complaintMessage");
-
-    if (complaint === "") {
-        msg.innerHTML = "Please write a complaint!";
-        msg.style.color = "red";
-        return;
-    }
+    if (!complaint) { msg.innerHTML = "Please write a complaint!"; msg.style.color = "red"; return; }
 
     let complaints = JSON.parse(localStorage.getItem("complaints")) || [];
-    complaints.push(complaint);
+    complaints.push({text: complaint, time: new Date().toLocaleString()});
     localStorage.setItem("complaints", JSON.stringify(complaints));
 
-    msg.innerHTML = "Complaint submitted successfully 💜";
-    msg.style.color = "green";
+    msg.innerHTML = "Complaint submitted successfully 💜"; msg.style.color = "green";
     document.getElementById("complaintText").value = "";
 
     loadComplaints();
 }
 
-// LOAD COMPLAINTS FOR ADMIN
+// LOAD COMPLAINTS
 function loadComplaints() {
     let complaints = JSON.parse(localStorage.getItem("complaints")) || [];
     let list = document.getElementById("complaintList");
     list.innerHTML = "";
-
-    for (let i = 0; i < complaints.length; i++) {
+    complaints.forEach((c, i) => {
         let p = document.createElement("p");
-        p.innerHTML = "Complaint " + (i + 1) + ": " + complaints[i];
+        p.innerHTML = `Complaint ${i+1} [${c.time}]: ${c.text} <button onclick="deleteComplaint(${i})">Delete</button>`;
         list.appendChild(p);
-    }
+    });
 }
-    
+
+// DELETE COMPLAINT
+function deleteComplaint(index) {
+    let complaints = JSON.parse(localStorage.getItem("complaints")) || [];
+    complaints.splice(index, 1);
+    localStorage.setItem("complaints", JSON.stringify(complaints));
+    loadComplaints();
+}
+
+// LOAD MESSAGES
+function loadMessages() {
+    let messages = JSON.parse(localStorage.getItem("messages")) || [];
+    let list = document.getElementById("messagesList");
+    list.innerHTML = "";
+    messages.forEach((m, i) => {
+        let p = document.createElement("p");
+        p.innerHTML = `<b>${m.name}</b>: ${m.text} <button onclick="deleteMessage(${i})">Delete</button>`;
+        list.appendChild(p);
+    });
+}
+
+// DELETE MESSAGE
+function deleteMessage(index) {
+    let messages = JSON.parse(localStorage.getItem("messages")) || [];
+    messages.splice(index, 1);
+    localStorage.setItem("messages", JSON.stringify(messages));
+    loadMessages();
+}
+        
+ 
