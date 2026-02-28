@@ -2,27 +2,27 @@
   <img src="./img.png" alt="Project Banner" width="100%">
 </p>
 
-# [Project Name] 🎯
+# [she resource hub] 🎯
 
 ## Basic Details
 
-### Team Name: [Name]
+### Team Name: [Alfiya K A]
 
 ### Team Members
 - Member 1: [Name] - [College]
 - Member 2: [Name] - [College]
 
 ### Hosted Project Link
-[mention your project hosted link here]
+[https://alfiyaanoop231-creator.github.io/she-resource-hub]
 
 ### Project Description
-[2-3 lines about what your project does]
+[Safe Space 💜 is a web platform empowering women with safety tips, health guidance, and emergency contacts. Users can report complaints, search topics, and get support while admins manage all submissions efficiently.]
 
 ### The Problem statement
-[What problem are you solving?]
+[Women and young girls often face safety and health challenges but lack a centralized platform to access guidance, report issues, and find emergency contacts. Existing resources are scattered, making it difficult to get timely help, advice, or support in critical situations.]
 
 ### The Solution
-[How are you solving it?]
+[Safe Space 💜 provides a centralized web platform where women and young girls can access safety tips, health guidance, and emergency contacts. Users can search topics, report complaints, and contact support, while admins can manage all submissions, ensuring timely help and awareness.]
 
 ---
 
@@ -31,10 +31,10 @@
 ### Technologies/Components Used
 
 **For Software:**
-- Languages used: [e.g., JavaScript, Python, Java]
-- Frameworks used: [e.g., React, Django, Spring Boot]
-- Libraries used: [e.g., axios, pandas, JUnit]
-- Tools used: [e.g., VS Code, Git, Docker]
+- Languages used: [JavaScript, html, css]
+- Frameworks used:[]
+- Libraries used: []
+- Tools used: [VS Code, GitHub, GitHub page]
 
 **For Hardware:**
 - Main components: [List main components]
@@ -46,10 +46,10 @@
 ## Features
 
 List the key features of your project:
-- Feature 1: [Description]
-- Feature 2: [Description]
-- Feature 3: [Description]
-- Feature 4: [Description]
+- Feature 1: [Login System]
+- Feature 2: [Report Complaints]
+- Feature 3: [Emergency Contacts]
+- Feature 4: [Admin Panel]
 
 ---
 
@@ -83,7 +83,7 @@ List the key features of your project:
 
 #### Screenshots (Add at least 3)
 
-![Screenshot1](Add screenshot 1 here with proper name)
+![Screenshot1]()
 *Add caption explaining what this shows*
 
 ![Screenshot2](Add screenshot 2 here with proper name)
