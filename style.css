@@ -41,7 +41,6 @@ input, select, textarea { padding: 10px; margin: 10px; width: 60%; }
 }
 
 .dark { background-color: #1e1e1e; color: white; }
-.dark .card, .dark .login-box, .dark .safety-contacts { background: #333; color: white; }
+.dark .card, .dark .login-box, .dark .emergency { background: #333; color: white; }
 
 #welcomeScreen { padding: 50px; }
-
