@@ -8,55 +8,42 @@
 
 <h1>Safe Space 💜</h1>
 
-<!-- LOGIN SECTION -->
+<!-- LOGIN -->
 <div class="login-box" id="loginBox">
     <h2>Login</h2>
-
     <select id="role">
         <option value="">Select Role</option>
         <option value="Student">Student</option>
         <option value="Worker">Worker</option>
         <option value="Admin">Admin</option>
     </select>
-
     <input type="text" id="username" placeholder="Enter your name">
     <input type="password" id="password" placeholder="Enter Password">
-
-    <label>
-        <input type="checkbox" onclick="togglePassword()"> Show Password
-    </label>
-
+    <label><input type="checkbox" onclick="togglePassword()"> Show Password</label>
     <button onclick="login()">Login</button>
     <p id="loginMessage"></p>
 </div>
 
 <!-- MAIN CONTENT -->
 <div id="mainContent" style="display:none;">
-
     <h2 id="greeting"></h2>
-
     <button onclick="toggleMode()" class="mode-btn">🌙 Toggle Mode</button>
-
     <input type="text" id="search" placeholder="Search topics..." onkeyup="searchContent()">
 
-    <!-- INFORMATION CARDS -->
+    <!-- CARDS -->
     <div id="content">
-
         <div class="card">
             <h2>PCOS</h2>
             <p>Polycystic Ovary Syndrome is a hormonal health condition.</p>
         </div>
-
         <div class="card">
             <h2>Mental Health</h2>
             <p>Taking care of emotional well-being is important.</p>
         </div>
-
         <div class="card">
             <h2>Self Defense</h2>
             <p>Always stay aware and prepared for emergencies.</p>
         </div>
-
     </div>
 
     <!-- EMERGENCY CONTACTS -->
@@ -64,6 +51,9 @@
         <h2>Emergency Contacts</h2>
         <a href="tel:112" class="call-btn">📞 Call 112</a>
         <a href="tel:1091" class="call-btn">📞 Women Helpline 1091</a>
+        <a href="tel:1098" class="call-btn">📞 Childline 1098</a>
+        <a href="tel:181" class="call-btn">📞 Domestic Violence 181</a>
+        <a href="tel:155260" class="call-btn">📞 Cyber Crime 155260</a>
     </div>
 
     <!-- CONTACT FORM -->
@@ -83,27 +73,16 @@
         <p id="complaintMessage"></p>
     </div>
 
-    <!-- WOMEN SAFETY NUMBERS -->
-    <div class="safety-contacts">
-        <h2>Women’s Safety Contacts</h2>
-        <ul>
-            <li>📞 Police: 112</li>
-            <li>📞 Women Helpline: 1091</li>
-            <li>📞 Childline: 1098</li>
-            <li>📞 Domestic Violence Helpline: 181</li>
-            <li>📞 Cyber Crime Helpline: 155260</li>
-        </ul>
-    </div>
-
     <!-- ADMIN PANEL -->
     <div id="adminPanel" style="display:none;">
-        <h2>Admin Panel - All Complaints</h2>
+        <h2>Admin Panel - Complaints</h2>
         <div id="complaintList"></div>
-    </div>
 
+        <h2>Admin Panel - Messages</h2>
+        <div id="messagesList"></div>
+    </div>
 </div>
 
 <script src="script.js"></script>
 </body>
 </html>
-       
