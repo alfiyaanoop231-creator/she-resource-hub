@@ -26,7 +26,7 @@ h1 {
 
 button {
     padding: 10px 20px;
-    margin: 5px;
+    margin: 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -50,7 +50,6 @@ input {
     padding: 15px;
     width: 70%;
     border-radius: 10px;
-    transition: transform 0.3s;
 }
 
 .card:hover {
@@ -67,7 +66,7 @@ input {
     border-radius: 5px;
 }
 
-.contact input, .contact textarea {
+.contact input, .contact textarea, .complaint-box textarea {
     width: 60%;
     padding: 10px;
     margin: 5px;
@@ -79,9 +78,33 @@ input {
 }
 
 .dark .card,
-.dark .login-box {
+.dark .login-box,
+.dark .safety-contacts {
     background: #333;
+    color: white;
 }
 
-   
-   
+.safety-contacts {
+    background: #ffe4e1;
+    padding: 15px;
+    width: 70%;
+    margin: 20px auto;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.safety-contacts h2 {
+    text-align: center;
+    color: #d81b60;
+}
+
+.safety-contacts ul {
+    list-style: none;
+    padding: 0;
+}
+
+.safety-contacts li {
+    padding: 5px 0;
+    font-size: 16px;
+}
+
