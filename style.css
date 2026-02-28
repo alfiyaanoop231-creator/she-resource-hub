@@ -1,53 +1,87 @@
 body {
-    font-family: Arial;
-    margin: 0;
-    background: linear-gradient(to right, #fce4ec, #f8bbd0);
+    font-family: Arial, sans-serif;
     text-align: center;
+    background-color: #fce4ec;
+    transition: 0.3s;
 }
 
-header {
-    background: #d81b60;
-    color: white;
-    padding: 20px;
+h1 {
+    color: #d81b60;
 }
 
-input {
-    padding: 8px;
-    width: 200px;
-    border-radius: 5px;
-    border: none;
-}
-
-nav {
-    background: #f06292;
-    padding: 10px;
-}
-
-nav a {
-    margin: 10px;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-section {
-    margin: 20px;
-    padding: 20px;
+.login-box {
     background: white;
+    padding: 20px;
+    width: 60%;
+    margin: 20px auto;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.login-box select,
+.login-box input {
+    padding: 10px;
+    margin: 8px;
+    width: 80%;
 }
 
 button {
-    padding: 8px 15px;
-    background: #d81b60;
-    color: white;
+    padding: 10px 20px;
+    margin: 5px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    background: #d81b60;
+    color: white;
 }
 
-.emergency-btn {
-    background: red;
-    margin: 20px;
+.mode-btn {
+    background: #6a1b9a;
 }
+
+input {
+    padding: 10px;
+    margin: 10px;
+    width: 60%;
+}
+
+.card {
+    background: white;
+    margin: 15px auto;
+    padding: 15px;
+    width: 70%;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.call-btn {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background: #ff4d6d;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.contact input, .contact textarea {
+    width: 60%;
+    padding: 10px;
+    margin: 5px;
+}
+
+.dark {
+    background-color: #1e1e1e;
+    color: white;
+}
+
+.dark .card,
+.dark .login-box {
+    background: #333;
+}
+
+   
+   
