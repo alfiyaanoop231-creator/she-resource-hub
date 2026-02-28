@@ -6,10 +6,15 @@
 </head>
 <body>
 
-<h1>Safe Space 💜</h1>
+<!-- WELCOME SCREEN -->
+<div id="welcomeScreen">
+    <h1>Welcome to Safe Space 💜</h1>
+    <p>Your personal safety and health platform</p>
+    <button onclick="showLogin()">Enter</button>
+</div>
 
 <!-- LOGIN -->
-<div class="login-box" id="loginBox">
+<div class="login-box" id="loginBox" style="display:none;">
     <h2>Login</h2>
     <select id="role">
         <option value="">Select Role</option>
@@ -68,6 +73,12 @@
     <!-- REPORT COMPLAINTS -->
     <div class="complaint-box">
         <h2>Report Complaint</h2>
+        <select id="category">
+            <option value="">Select Category</option>
+            <option value="Health">Health</option>
+            <option value="Safety">Safety</option>
+            <option value="Other">Other</option>
+        </select>
         <textarea id="complaintText" placeholder="Write your complaint..."></textarea>
         <button onclick="submitComplaint()">Submit Complaint</button>
         <p id="complaintMessage"></p>
