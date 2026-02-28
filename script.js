@@ -1,4 +1,11 @@
-  // SHOW LOGIN AFTER WELCOME
+  // MULTIPLE ADMINS
+let admins = [
+    { username: "Admin1", password: "safe2026" },
+    { username: "Admin2", password: "protect123" },
+    { username: "Admin3", password: "helpme" }
+];
+
+// SHOW LOGIN AFTER WELCOME
 function showLogin() {
     document.getElementById("welcomeScreen").style.display = "none";
     document.getElementById("loginBox").style.display = "block";
@@ -11,22 +18,27 @@ function login() {
     let password = document.getElementById("password").value;
     let message = document.getElementById("loginMessage");
 
-    if(role === "Admin" && password !== "admin123") {
-        message.innerHTML = "Incorrect Admin password!";
+    if(role === "" || username === "" || password === "") {
+        message.innerHTML = "Please fill all fields!";
         message.style.color = "red";
         return;
     }
 
-    if(role === "" || username === "") {
-        message.innerHTML = "Please fill all fields!";
-        message.style.color = "red";
-        return;
+    // Admin login check
+    if(role === "Admin") {
+        let validAdmin = admins.find(admin => admin.username === username && admin.password === password);
+        if(!validAdmin) {
+            message.innerHTML = "Invalid Admin username or password!";
+            message.style.color = "red";
+            return;
+        }
     }
 
     document.getElementById("loginBox").style.display = "none";
     document.getElementById("mainContent").style.display = "block";
     setGreeting(username);
 
+    // Admin panel visibility
     if(role === "Admin") {
         document.getElementById("adminPanel").style.display = "block";
         loadComplaints();
@@ -56,7 +68,7 @@ function setGreeting(username) {
 function searchContent() {
     let input = document.getElementById("search").value.toLowerCase();
     let cards = document.getElementsByClassName("card");
-    for (let i = 0; i < cards.length; i++) {
+    for(let i=0;i<cards.length;i++){
         let text = cards[i].innerText.toLowerCase();
         cards[i].style.display = text.includes(input) ? "block" : "none";
         cards[i].style.border = text.includes(input) ? "2px solid #d81b60" : "none";
@@ -68,10 +80,11 @@ function countChar() {
     let text = document.getElementById("message").value.length;
     document.getElementById("charCount").innerHTML = text + " / 200";
 }
+
 function sendMessage() {
     let name = document.getElementById("name").value;
     let message = document.getElementById("message").value;
-    if(!name || !message) { alert("Please fill all fields!"); return; }
+    if(!name || !message){ alert("Please fill all fields!"); return; }
 
     let messages = JSON.parse(localStorage.getItem("messages")) || [];
     messages.push({name, text: message, role: document.getElementById("role").value});
@@ -84,12 +97,12 @@ function sendMessage() {
     loadMessages();
 }
 
-// COMPLAINTS WITH CATEGORY & STATUS
+// COMPLAINTS
 function submitComplaint() {
     let complaint = document.getElementById("complaintText").value;
     let category = document.getElementById("category").value;
     let msg = document.getElementById("complaintMessage");
-    if(!complaint || !category) { msg.innerHTML="Fill all fields!"; msg.style.color="red"; return; }
+    if(!complaint || !category){ msg.innerHTML="Fill all fields!"; msg.style.color="red"; return; }
 
     let complaints = JSON.parse(localStorage.getItem("complaints")) || [];
     complaints.push({text: complaint, category: category, status:"Pending", time:new Date().toLocaleString(), role: document.getElementById("role").value});
@@ -102,26 +115,30 @@ function submitComplaint() {
 }
 
 // LOAD & MANAGE COMPLAINTS
-function loadComplaints() {
+function loadComplaints(){
     let complaints = JSON.parse(localStorage.getItem("complaints")) || [];
     let list = document.getElementById("complaintList");
-    list.innerHTML = "";
+    list.innerHTML="";
     complaints.forEach((c,i)=>{
-        let p = document.createElement("p");
-        p.innerHTML=`Complaint ${i+1} [${c.time}] (${c.category}, ${c.status}): ${c.text} <button onclick="deleteComplaint(${i})">Delete</button> <button onclick="resolveComplaint(${i})">Resolve</button>`;
+        let p=document.createElement("p");
+        p.innerHTML=`Complaint ${i+1} [${c.time}] (${c.category}, ${c.status}): ${c.text} 
+        <button onclick="deleteComplaint(${i})">Delete</button> 
+        <button onclick="resolveComplaint(${i})">Resolve</button>`;
         list.appendChild(p);
     });
 }
-function deleteComplaint(index) {
+
+function deleteComplaint(index){
     let complaints = JSON.parse(localStorage.getItem("complaints")) || [];
     complaints.splice(index,1);
-    localStorage.setItem("complaints",JSON.stringify(complaints));
+    localStorage.setItem("complaints", JSON.stringify(complaints));
     loadComplaints();
 }
+
 function resolveComplaint(index){
     let complaints = JSON.parse(localStorage.getItem("complaints")) || [];
     complaints[index].status = "Resolved";
-    localStorage.setItem("complaints",JSON.stringify(complaints));
+    localStorage.setItem("complaints", JSON.stringify(complaints));
     loadComplaints();
 }
 
@@ -132,13 +149,15 @@ function loadMessages(){
     list.innerHTML="";
     messages.forEach((m,i)=>{
         let p=document.createElement("p");
-        p.innerHTML=`<b>${m.name} (${m.role})</b>: ${m.text} <button onclick="deleteMessage(${i})">Delete</button>`;
+        p.innerHTML=`<b>${m.name} (${m.role})</b>: ${m.text} 
+        <button onclick="deleteMessage(${i})">Delete</button>`;
         list.appendChild(p);
     });
 }
+
 function deleteMessage(index){
     let messages = JSON.parse(localStorage.getItem("messages")) || [];
     messages.splice(index,1);
-    localStorage.setItem("messages",JSON.stringify(messages));
+    localStorage.setItem("messages", JSON.stringify(messages));
     loadMessages();
 }
