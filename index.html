@@ -1,51 +1,73 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Her Safe Space</title>
+    <title>Safe Space</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-    <h1>Her Safe Space 💜</h1>
-    <input type="text" id="search" placeholder="Search..." onkeyup="searchContent()">
-</header>
+<h1>Safe Space 💜</h1>
 
-<nav>
-    <a href="#">Home</a>
-    <a href="#">Emergency</a>
-    <a href="#">Health</a>
-    <a href="#">Contact</a>
-</nav>
+<!-- LOGIN SECTION -->
+<div class="login-box" id="loginBox">
+    <h2>Login</h2>
 
-<button class="emergency-btn" onclick="showEmergency()">🚨 Emergency Help</button>
+    <select id="role">
+        <option value="">Select Role</option>
+        <option value="Student">Student</option>
+        <option value="Worker">Worker</option>
+    </select>
 
-<section class="content">
-    <h2>Emergency Contacts</h2>
-    <p>Women Helpline: 181</p>
-    <p>Police: 100</p>
-    <p>Ambulance: 108</p>
+    <input type="text" id="username" placeholder="Enter your name">
+    <button onclick="login()">Login</button>
 
-    <h2>Health Awareness</h2>
-    <p>Learn about menstrual health, anemia, and PCOS.</p>
-</section>
+    <p id="loginMessage"></p>
+</div>
 
-<section>
-    <h2>Anonymous Help Form</h2>
-    <form onsubmit="showMessage(); return false;">
-        <input type="text" placeholder="Your Name (Optional)">
-        <br><br>
-        <textarea placeholder="Write your issue here"></textarea>
-        <br><br>
-        <button type="submit">Submit</button>
-    </form>
-</section>
+<!-- MAIN WEBSITE (Hidden Before Login) -->
+<div id="mainContent" style="display:none;">
 
-<footer>
-    <p>© 2026 Her Safe Space | Made for Women’s Hackathon 💜</p>
-</footer>
+    <button onclick="toggleMode()" class="mode-btn">🌙 Toggle Mode</button>
+
+    <input type="text" id="search" placeholder="Search topics..." onkeyup="searchContent()">
+
+    <div id="content">
+
+        <div class="card">
+            <h2>PCOS</h2>
+            <p>Polycystic Ovary Syndrome is a hormonal health condition.</p>
+        </div>
+
+        <div class="card">
+            <h2>Mental Health</h2>
+            <p>Taking care of emotional well-being is important.</p>
+        </div>
+
+        <div class="card">
+            <h2>Self Defense</h2>
+            <p>Always stay aware and prepared for emergencies.</p>
+        </div>
+
+    </div>
+
+    <div class="emergency">
+        <h2>Emergency Contacts</h2>
+        <a href="tel:112" class="call-btn">📞 Call 112</a>
+        <a href="tel:1091" class="call-btn">📞 Women Helpline 1091</a>
+    </div>
+
+    <div class="contact">
+        <h2>Contact Support</h2>
+        <input type="text" id="name" placeholder="Your Name">
+        <textarea id="message" placeholder="Your Message"></textarea>
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+</div>
 
 <script src="script.js"></script>
-
 </body>
 </html>
+
+
+    
