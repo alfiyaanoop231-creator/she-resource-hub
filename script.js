@@ -164,3 +164,4 @@ function deleteMessage(index){
     localStorage.setItem("messages", JSON.stringify(messages));
     loadMessages();
 }
+
