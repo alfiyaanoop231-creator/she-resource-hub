@@ -1,99 +1,46 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Safe Space</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #fce4ec;
+    transition: 0.3s;
+}
 
-<!-- WELCOME SCREEN -->
-<div id="welcomeScreen">
-    <h1>Welcome to Safe Space 💜</h1>
-    <p>Your personal safety and health platform</p>
-    <button onclick="showLogin()">Enter</button>
-</div>
+h1 { color: #d81b60; }
 
-<!-- LOGIN -->
-<div class="login-box" id="loginBox" style="display:none;">
-    <h2>Login</h2>
-    <select id="role">
-        <option value="">Select Role</option>
-        <option value="Student">Student</option>
-        <option value="Worker">Worker</option>
-        <option value="Admin">Admin</option>
-    </select>
-    <input type="text" id="username" placeholder="Enter your name">
-    <input type="password" id="password" placeholder="Enter Password">
-    <label><input type="checkbox" onclick="togglePassword()"> Show Password</label>
-    <button onclick="login()">Login</button>
-    <p id="loginMessage"></p>
-</div>
+.login-box, .card, .complaint-box, .contact, .emergency {
+    background: white;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+}
 
-<!-- MAIN CONTENT -->
-<div id="mainContent" style="display:none;">
-    <h2 id="greeting"></h2>
-    <button onclick="toggleMode()" class="mode-btn">🌙 Toggle Mode</button>
-    <input type="text" id="search" placeholder="Search topics..." onkeyup="searchContent()">
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #d81b60;
+    color: white;
+}
 
-    <!-- CARDS -->
-    <div id="content">
-        <div class="card">
-            <h2>PCOS</h2>
-            <p>Polycystic Ovary Syndrome is a hormonal health condition.</p>
-        </div>
-        <div class="card">
-            <h2>Mental Health</h2>
-            <p>Taking care of emotional well-being is important.</p>
-        </div>
-        <div class="card">
-            <h2>Self Defense</h2>
-            <p>Always stay aware and prepared for emergencies.</p>
-        </div>
-    </div>
+.mode-btn { background: #6a1b9a; }
 
-    <!-- EMERGENCY CONTACTS -->
-    <div class="emergency">
-        <h2>Emergency Contacts</h2>
-        <a href="tel:112" class="call-btn">📞 Call 112</a>
-        <a href="tel:1091" class="call-btn">📞 Women Helpline 1091</a>
-        <a href="tel:1098" class="call-btn">📞 Childline 1098</a>
-        <a href="tel:181" class="call-btn">📞 Domestic Violence 181</a>
-        <a href="tel:155260" class="call-btn">📞 Cyber Crime 155260</a>
-    </div>
+input, select, textarea { padding: 10px; margin: 10px; width: 60%; }
 
-    <!-- CONTACT FORM -->
-    <div class="contact">
-        <h2>Contact Support</h2>
-        <input type="text" id="name" placeholder="Your Name">
-        <textarea id="message" maxlength="200" onkeyup="countChar()" placeholder="Your Message"></textarea>
-        <p id="charCount">0 / 200</p>
-        <button onclick="sendMessage()">Send</button>
-    </div>
+.card:hover { transform: scale(1.05); }
 
-    <!-- REPORT COMPLAINTS -->
-    <div class="complaint-box">
-        <h2>Report Complaint</h2>
-        <select id="category">
-            <option value="">Select Category</option>
-            <option value="Health">Health</option>
-            <option value="Safety">Safety</option>
-            <option value="Other">Other</option>
-        </select>
-        <textarea id="complaintText" placeholder="Write your complaint..."></textarea>
-        <button onclick="submitComplaint()">Submit Complaint</button>
-        <p id="complaintMessage"></p>
-    </div>
+.call-btn {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background: #ff4d6d;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
 
-    <!-- ADMIN PANEL -->
-    <div id="adminPanel" style="display:none;">
-        <h2>Admin Panel - Complaints</h2>
-        <div id="complaintList"></div>
+.dark { background-color: #1e1e1e; color: white; }
+.dark .card, .dark .login-box, .dark .emergency { background: #333; color: white; }
 
-        <h2>Admin Panel - Messages</h2>
-        <div id="messagesList"></div>
-    </div>
-</div>
-
-<script src="script.js"></script>
-</body>
-</html>
+#welcomeScreen { padding: 50px; }
